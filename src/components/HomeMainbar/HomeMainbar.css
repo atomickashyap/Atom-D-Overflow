@@ -53,6 +53,29 @@
 
 .display-question-details{
     flex-grow: 1;
+    padding: 0px 20px;
 }
+
+.question-title-link{
+    text-decoration: none;
+    color: #037ecb;
+    transition: 0.3s;
+}
+
+.question-title-link:hover{
+    color: #009dff;
+}
+
+.display-question-details p{
+    padding: 4px;
+    margin: 0%;
+}
+
+.display-tags-time{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 
 
