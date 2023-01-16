@@ -6,32 +6,59 @@ import QuestionList from './QuestionList'
 const HomeMainbar = () => {
 
   var questionsList = [{
-    id:1,
-    votes:3,
+    _id:1,
+    upVotes:3,
+    downVote:2,
+    votes:3, //This should be deleted 
     noOfAnswer:2,
     questionTitle:"What is a 1 function?",
     questionBody:"It meant to be",
     questionTags:["java","node js","react js","mongo db","cpp","html"],
     userPosted:"mano",
-    askedOn:"jan 1"
+    userId: 1,
+    askedOn:"jan 1",
+    answer:[{
+      answerBody: "Answer",
+      userAnswered:'kumar',
+      answeredOn: "jan 2",
+      userId: 2,
+    }]
   },{
-    id:2,
-    votes:0,
+    _id:2,
+    upVotes:3,
+    downVote:2,
+    votes:0,//This should be deleted 
     noOfAnswer:0,
     questionTitle:"What is a 2 function?",
     questionBody:"It meant to be",
     questionTags:["python","R","javascript"],
     userPosted:"mano",
-    askedOn:"jan 1"
+    userId: 1,
+    askedOn:"jan 1",
+    answer:[{
+      answerBody: "Answer",
+      userAnswered:'kumar',
+      answeredOn: "jan 2",
+      userId: 2,
+    }]
   },{
-    id:3,
-    votes:1,
+    _id:3,
+    upVotes:3,
+    downVote:2,
+    votes:1,//This should be deleted 
     noOfAnswer:0,
     questionTitle:"What is a 3 function?",
     questionBody:"It meant to be",
     questionTags:["python","R","javascript"],
     userPosted:"mano",
-    askedOn:"jan 1"
+    userId: 1,
+    askedOn:"jan 1",
+    answer:[{
+      answerBody: "Answer",
+      userAnswered:'kumar',
+      answeredOn: "jan 2",
+      userId: 2,
+    }]
   }
 ]
 

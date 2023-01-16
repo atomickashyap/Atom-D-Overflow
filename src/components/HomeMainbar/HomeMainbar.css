@@ -71,10 +71,10 @@
     margin: 0%;
 }
 
-/* .display-tags-time .display-tags{
+.display-tags-time .display-tags{
     display: flex;
     flex-wrap: wrap;
-} */
+}
 
 .display-tags-time{
     display: flex;
@@ -97,7 +97,7 @@
 }
 
 
-.display-tags-time   {
+.display-tags-time {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -106,10 +106,9 @@
     padding: 0;
   }
   
-  .display-tags-time .display-tags {
-
-    float: left; 
-  }
+  /* .display-tags-time .display-tags {
+    float: left;
+  } */
   
   .display-tags-time .display-tags p {
     background: #eee;
@@ -135,7 +134,7 @@
     left: 10px;
     position: absolute;
     width: 6px;
-    top: 10px;
+    top: 8px;
   }
   
   .display-tags-time .display-tags ::after {
