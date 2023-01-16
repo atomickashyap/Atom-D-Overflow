@@ -10,11 +10,11 @@ const Questions = ({question}) => {
       </div>
       <div className='display-votes-ans'>
         <p>{question.noOfAnswer}</p>
-        <p>answers</p>
+        <p>Answers</p>
       </div>
-      <div className = "divdisplay-question-details">
+      <div className = "display-question-details">
         <Link to = {`/Questions/${question.id}`} className = 'question-title-link'>{question.questionTitle}</Link>
-        <div className='display-tags-times'>
+        <div className='display-tags-time'>
             <div className='display-tags'>
                 {
                     question.questionTags.map((tag) => (
@@ -23,7 +23,7 @@ const Questions = ({question}) => {
                 }
             </div>
             <p className='display-time'>
-                asked{question.askedOn } { question.userPosted } 
+                asked {question.askedOn } { question.userPosted } 
             </p>
         </div>
       </div>

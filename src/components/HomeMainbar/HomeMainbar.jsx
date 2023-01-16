@@ -11,7 +11,7 @@ const HomeMainbar = () => {
     noOfAnswer:2,
     questionTitle:"What is a 1 function?",
     questionBody:"It meant to be",
-    questionTags:["java","node js","react js","mongo db"],
+    questionTags:["java","node js","react js","mongo db","cpp","html"],
     userPosted:"mano",
     askedOn:"jan 1"
   },{
@@ -44,7 +44,7 @@ const HomeMainbar = () => {
         }
         <Link to ='/AskQuestion' className='ask-btn'>Ask Question</Link>
       </div>
-      <div >
+      <div R>
         {
           questionsList === null ?
           <h1>Loading....</h1>:
