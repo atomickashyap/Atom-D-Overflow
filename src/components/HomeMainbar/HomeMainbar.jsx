@@ -1,14 +1,18 @@
 import React from 'react'
-import { Link, useLocation} from 'react-router-dom'
+import {useLocation,useNavigate} from 'react-router-dom'
 import './HomeMainbar.css'
 import QuestionList from './QuestionList'
 
 const HomeMainbar = () => {
 
+  const location = useLocation()
+  const user=1;
+  const navigate = useNavigate()
+
   var questionsList = [{
     _id:1,
     upVotes:3,
-    downVotes:2,
+    downVote:2,
     votes:3, //This should be deleted 
     noOfAnswer:2,
     questionTitle:"What is a 1 function?",
@@ -26,7 +30,7 @@ const HomeMainbar = () => {
   },{
     _id:2,
     upVotes:3,
-    downVotes:2,
+    downVote:2,
     votes:0,//This should be deleted 
     noOfAnswer:0,
     questionTitle:"What is a 2 function?",
@@ -62,14 +66,25 @@ const HomeMainbar = () => {
   }
 ]
 
-  const location = useLocation()
+
+const checkAuth = () => {
+  if(user!==1)
+  {
+    alert("login or signup to ask a question")
+    navigate('/Auth')
+  }
+  else
+  {
+    navigate('/AskQuestions')
+  }
+}
   return (
     <div className='main-bar'>
       <div className='main-bar-header'>
         {
           location.pathname === '/' ? <h1>Top Questions</h1> :<h1>All Questions</h1>
         }
-        <Link to ='/AskQuestion' className='ask-btn'>Ask Question</Link>
+        <button onClick={checkAuth} className='ask-btn'>Ask Question</button>
       </div>
       <div R>
         {
@@ -81,9 +96,8 @@ const HomeMainbar = () => {
           </>
         }
       </div>
-        
+
     </div>
   )
 }
-
 export default HomeMainbar
