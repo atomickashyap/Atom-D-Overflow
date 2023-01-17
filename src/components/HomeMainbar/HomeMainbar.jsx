@@ -8,7 +8,7 @@ const HomeMainbar = () => {
   var questionsList = [{
     _id:1,
     upVotes:3,
-    downVote:2,
+    downVotes:2,
     votes:3, //This should be deleted 
     noOfAnswer:2,
     questionTitle:"What is a 1 function?",
@@ -26,7 +26,7 @@ const HomeMainbar = () => {
   },{
     _id:2,
     upVotes:3,
-    downVote:2,
+    downVotes:2,
     votes:0,//This should be deleted 
     noOfAnswer:0,
     questionTitle:"What is a 2 function?",
@@ -81,7 +81,7 @@ const HomeMainbar = () => {
           </>
         }
       </div>
-      
+        
     </div>
   )
 }
