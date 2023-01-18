@@ -2,7 +2,7 @@ import React from 'react'
 import {Link, useParams} from 'react-router-dom'
 import upVotes from '../../assets/sort_up.svg'
 import downVotes from '../../assets/sort_down.svg'
-import './QuestionsDetails.css'
+import './Questions.css'
 import Avatar from '../../components/Avatar/Avatar'
 import DisplayAnswer from './DisplayAnswer'
 
@@ -80,9 +80,9 @@ const QuestionDetails = () => {
                                 <h1>{question.questionTitle}</h1>
                                 <div className='question-details-container-2'>
                                     <div className="question-votes">
-                                        <img src ={upVotes} alt="upVotes" width="18" />
+                                        <img src ={upVotes} alt="upVotes" width="18" className='votes-icon'/>
                                         <p>{question.upVotes - question.downVotes}</p>
-                                        <img src ={downVotes} alt="downVotes" width="18" />
+                                        <img src ={downVotes} alt="downVotes" width="18" className='votes-icon'/>
                                     </div>
                                     <div style = {{width: "100%"}}>
                                         <p className='question-body'>{question.questionBody}</p>
@@ -93,7 +93,7 @@ const QuestionDetails = () => {
                                                 ))
                                             }
                                         </div>
-                                        <div className='question-action -user'>
+                                        <div className='question-actions-user'>
                                             <div>
                                                 <button type = 'button'>Share</button>
                                                 <button type='button'>Delete</button>
@@ -133,7 +133,7 @@ const QuestionDetails = () => {
                                         ))
 
                                     } or 
-                                    <Link to = '/AskQuestion' style={{textDecoration: "none", color:"009dff" } }> ans your own questions.</Link>
+                                    <Link to = '/AskQuestion' style={{textDecoration: "none", color:"009dff" } }> ask your own questions.</Link>
                                 </p>
                             </section>
                         </div>
