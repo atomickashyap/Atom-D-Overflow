@@ -1,8 +1,11 @@
-import React from 'react'
-import { useState } from 'react'
+import React,{useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import './Auth.css'
 import icon from '../../assets/icon.png'
 import AboutAuth from './AboutAuth'
+import { signup, login } from '../../actions/auth'
+
 
 const Auth = () => {
 
@@ -11,12 +14,14 @@ const Auth = () => {
     const[email, setEmail ] = useState('')
     const[password, setPassword ] = useState('')
 
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleSwitch = () =>{
         setIsSignup(!isSignup)
     }
  
-    const handleSubmit =(e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault()
         if(!email && !password){
             alert('Enter email and password')
@@ -25,8 +30,11 @@ const Auth = () => {
             if(!name){
                 alert("Enter a name to continue...")
             }
+            dispatch(signup({name, email, password}, navigate))
         }
-        console.log({name,email,password})
+        else{
+            dispatch(login({email, password}, navigate))
+        }
     }
 
 
