@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link, useParams} from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import upVotes from '../../assets/sort_up.svg'
 import downVotes from '../../assets/sort_down.svg'
 import './Questions.css'
@@ -9,72 +10,73 @@ import DisplayAnswer from './DisplayAnswer'
 const QuestionDetails = () => {
 
     const{ id } = useParams()
+    const questionsList = useSelector(state => state.questionReducer)
 
-    var questionsList = [{
-        _id:'1',
-        upVotes:3,
-        downVotes:2,
-        votes:3, //This should be deleted 
-        noOfAnswer:2,
-        questionTitle:"What is a 1 function?",
-        questionBody:"It meant to be",
-        questionTags:["java","node js","react js","mongo db","cpp","html"],
-        userPosted:"mano",
-        userId: 1,
-        askedOn:"jan 1",
-        answer:[{
-          answerBody: "Answer",
-          userAnswered:'kumar',
-          answeredOn: "jan 2",
-          userId: 2,
-        }]
-      },{
-        _id: '2',
-        upVotes:3,
-        downVotes:2,
-        votes:0,//This should be deleted 
-        noOfAnswer:0,
-        questionTitle:"What is a 2 function?",
-        questionBody:"It meant to be",
-        questionTags:["python","R","javascript"],
-        userPosted:"mano",
-        userId: 1, 
-        askedOn:"jan 1",
-        answer:[{
-          answerBody: "Answer",
-          userAnswered:'kumar',
-          answeredOn: "jan 2",
-          userId: 2,
-        }]
-      },{
-        _id:'3',
-        upVotes:3,
-        downVotes:2,
-        votes:1,//This should be deleted 
-        noOfAnswer:0,
-        questionTitle:"What is a 3 function?",
-        questionBody:"It meant to be",
-        questionTags:["python","R","javascript"],
-        userPosted:"mano",
-        userId: 1,
-        askedOn:"jan 1",
-        answer:[{
-          answerBody: "Answer",
-          userAnswered:'kumar',
-          answeredOn: "jan 2",
-          userId: 2,
-        }]
-      }
-    ] 
+    // var questionsList = [{
+    //     _id:'1',
+    //     upVotes:3,
+    //     downVotes:2,
+    //     votes:3, //This should be deleted 
+    //     noOfAnswer:2,
+    //     questionTitle:"What is a 1 function?",
+    //     questionBody:"It meant to be",
+    //     questionTags:["java","node js","react js","mongo db","cpp","html"],
+    //     userPosted:"mano",
+    //     userId: 1,
+    //     askedOn:"jan 1",
+    //     answer:[{
+    //       answerBody: "Answer",
+    //       userAnswered:'kumar',
+    //       answeredOn: "jan 2",
+    //       userId: 2,
+    //     }]
+    //   },{
+    //     _id: '2',
+    //     upVotes:3,
+    //     downVotes:2,
+    //     votes:0,//This should be deleted 
+    //     noOfAnswer:0,
+    //     questionTitle:"What is a 2 function?",
+    //     questionBody:"It meant to be",
+    //     questionTags:["python","R","javascript"],
+    //     userPosted:"mano",
+    //     userId: 1, 
+    //     askedOn:"jan 1",
+    //     answer:[{
+    //       answerBody: "Answer",
+    //       userAnswered:'kumar',
+    //       answeredOn: "jan 2",
+    //       userId: 2,
+    //     }]
+    //   },{
+    //     _id:'3',
+    //     upVotes:3,
+    //     downVotes:2,
+    //     votes:1,//This should be deleted 
+    //     noOfAnswer:0,
+    //     questionTitle:"What is a 3 function?",
+    //     questionBody:"It meant to be",
+    //     questionTags:["python","R","javascript"],
+    //     userPosted:"mano",
+    //     userId: 1,
+    //     askedOn:"jan 1",
+    //     answer:[{
+    //       answerBody: "Answer",
+    //       userAnswered:'kumar',
+    //       answeredOn: "jan 2",
+    //       userId: 2,
+    //     }]
+    //   }
+    // ] 
 
   return (
     <div className='question-details-pages'>
         {
-            questionsList === null ?
+            questionsList.data === null ?
             <h1>Loading...</h1>:
             <>
                 {
-                    questionsList.filter(question => question._id === id).map(question => (
+                    questionsList.data.filter(question => question._id === id).map(question => (
                         <div key = {question._id}>
                             <section className='question-details-container'>
                                 <h1>{question.questionTitle}</h1>
