@@ -136,7 +136,7 @@ const QuestionDetails = () => {
                             {
                                 question.noOfAnswers !==0 && (
                                     <section>
-                                        <h3>{question.noOfAnswers} answers</h3>
+                                        <h3>{question.noOfAnswers} Answers</h3>
                                         <DisplayAnswer key = {questionsList._id} question={question} />
                                     </section>
                                 )
