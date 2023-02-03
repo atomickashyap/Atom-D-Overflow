@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
-import {Link, useParams, useNavigate} from 'react-router-dom'
+import {Link, useParams, useNavigate, useLocation} from 'react-router-dom'
 import { useSelector ,useDispatch} from 'react-redux'
 import moment from 'moment'
+import copy from 'copy-to-clipboard'
 
 import upVotes from '../../assets/sort_up.svg'
 import downVotes from '../../assets/sort_down.svg'
@@ -14,6 +15,8 @@ const QuestionDetails = () => {
 
     const{ id } = useParams()
     const questionsList = useSelector(state => state.questionReducer)
+    
+
     // var questionsList = [{
     //     _id:'1',
     //     upVotes:3,
@@ -73,8 +76,12 @@ const QuestionDetails = () => {
 
     const[Answer, setAnswer] = useState('')
     const Navigate = useNavigate()
-    const dispatch = useDispatch()  
+    const dispatch = useDispatch()
     const User = useSelector((state) => (state.currentUserReducer))
+    const location = useLocation()
+    const url = 'http://localhost:3000'
+    // console.log(location)
+
     const handlePostAns = (e,answerLength) =>{
         e.preventDefault()
         if(User === null){
@@ -88,6 +95,11 @@ const QuestionDetails = () => {
                 dispatch(postAnswer({id, noOfAnswers: answerLength+1, answerBody: Answer, userAnswered: User.result.name}))
             }
         }
+    }
+
+    const handleShare = () => {
+        copy(url+location.pathname)
+        alert('Copied url : '+url+location.pathname)
     }
 
   return (
@@ -118,7 +130,7 @@ const QuestionDetails = () => {
                                         </div>
                                         <div className='question-actions-user'>
                                             <div>
-                                                <button type = 'button'>Share</button>
+                                                <button type = 'button' onClick={handleShare}>Share</button>
                                                 <button type='button'>Delete</button>
                                             </div>
                                             <div>
@@ -138,7 +150,7 @@ const QuestionDetails = () => {
                                 question.noOfAnswers !==0 && (
                                     <section>
                                         <h3>{question.noOfAnswers} Answers</h3>
-                                        <DisplayAnswer key = {questionsList._id} question={question} />
+                                        <DisplayAnswer key = {questionsList._id} question={question} handleShare ={handleShare}/>
                                     </section>
                                 )
                             }
