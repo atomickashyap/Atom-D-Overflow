@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import {Link, useParams, useNavigate} from 'react-router-dom'
 import { useSelector ,useDispatch} from 'react-redux'
+import moment from 'moment'
+
 import upVotes from '../../assets/sort_up.svg'
 import downVotes from '../../assets/sort_down.svg'
 import './Questions.css'
@@ -84,7 +86,6 @@ const QuestionDetails = () => {
             }
             else{
                 dispatch(postAnswer({id, noOfAnswers: answerLength+1, answerBody: Answer, userAnswered: User.result.name}))
-                // window.location.reload()
             }
         }
     }
@@ -121,7 +122,7 @@ const QuestionDetails = () => {
                                                 <button type='button'>Delete</button>
                                             </div>
                                             <div>
-                                                <p>asked {question.askedOn}</p>
+                                                <p>asked {moment(question.askedOn).fromNow()}</p>
                                                 <Link to ={`/User/${question.userId}`} className='user-link' sytle={{color:'#0086d8'}} > 
                                                     <Avatar backgroundColor="orange" px = '8px' py ='5px' >{question.userPosted.charAt(0).toUpperCase()}</Avatar>
                                                     <div>
