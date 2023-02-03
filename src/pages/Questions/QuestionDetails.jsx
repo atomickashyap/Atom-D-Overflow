@@ -12,7 +12,6 @@ const QuestionDetails = () => {
 
     const{ id } = useParams()
     const questionsList = useSelector(state => state.questionReducer)
-
     // var questionsList = [{
     //     _id:'1',
     //     upVotes:3,
@@ -85,6 +84,7 @@ const QuestionDetails = () => {
             }
             else{
                 dispatch(postAnswer({id, noOfAnswers: answerLength+1, answerBody: Answer, userAnswered: User.result.name}))
+                // window.location.reload()
             }
         }
     }
@@ -143,9 +143,9 @@ const QuestionDetails = () => {
                             }
                             <section className='post-ans-container'>
                                 <h3>Your Answer</h3>
-                                <form onSubmit={(e) => {handlePostAns(e,question.answer.length)}}>
+                                <form onSubmit={(e) => {handlePostAns(e, question.answer.length )}}>
                                     <textarea name="" id ="" cols="30" rows="10" onChange={e => setAnswer(e.target.value)}></textarea><br />
-                                    <input type="submit" className='post-ans-btn' value = 'Post Your Answer' ></input>
+                                    <input type="submit" className='post-ans-btn' value = 'Post Your Answer'></input>
                                 </form>
                                 <p>
                                     Browse other Question tagged

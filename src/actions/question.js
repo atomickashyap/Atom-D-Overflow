@@ -25,7 +25,7 @@ export const postAnswer = (answerData) => async(dispatch) => {
     const {id,  noOfAnswers, answerBody, userAnswered} = answerData
     const {data} = await api.postAnswer(id, noOfAnswers, answerBody, userAnswered)
     dispatch({ type: "POST_ANSWER", payload: data })
-    dispatch(fetchAllQuestions)
+    dispatch(fetchAllQuestions())
   } catch (error) {
     console.log(error)
   }
