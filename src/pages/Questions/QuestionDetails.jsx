@@ -93,7 +93,7 @@ const QuestionDetails = () => {
                 alert('Enter an answer before submitting')
             }
             else{
-                dispatch(postAnswer({id, noOfAnswers: answerLength+1, answerBody: Answer, userAnswered: User.result.name, userId: User?.result?._id}))
+                dispatch(postAnswer({id, noOfAnswers: answerLength+1, answerBody: Answer, userAnswered: User.result.name, userId: User.result._id}))
             }
         }
     }
@@ -103,8 +103,9 @@ const QuestionDetails = () => {
         alert('Copied url : '+url+location.pathname)
     }
 
-    const handleDelete =() =>{
+    const handleDelete = () =>{
         dispatch(deleteQuestion(id, Navigate))
+        window.location.reload();
     }
 
   return (
