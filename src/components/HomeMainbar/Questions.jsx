@@ -6,11 +6,11 @@ const Questions = ({question}) => {
   return (
     <div className='display-question-container'>
       <div className='display-votes-ans'>
-        <p>{question.votes}</p>
+        <p>{question.upVote.length - question.downVote.length}</p>
         <p>votes</p>
       </div>
       <div className='display-votes-ans'>
-        <p>{question.noOfAnswer}</p>
+        <p>{question.noOfAnswers}</p>
         <p>Answers</p>
       </div>
       <div className = "display-question-details">
