@@ -6,6 +6,7 @@ import Questions from './pages/Questions/Questions';
 import DisplayQuestion from './pages/Questions/DisplayQuestion';
 import AskQuestions from './pages/AskQuestions/AskQuestions';
 import Tags from './pages/Tags/Tags'
+import Users from './pages/Users/Users';
 
 
 const AllRoutes = () =>{
@@ -17,6 +18,7 @@ const AllRoutes = () =>{
                 <Route path='/AskQuestions' element = {<AskQuestions />} />
                 <Route path = '/questions/:id' element={<DisplayQuestion/>}/>
                 <Route path = '/Tags' element={<Tags/>}/>
+                <Route path = '/Users' element={<Users/>}/>
                 
                 
                 
