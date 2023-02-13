@@ -1,15 +1,16 @@
 import React from 'react'
+import './UserProfile.css'
 
 const ProfileBio = ({currentProfile}) => {
   return (
     <div>
         <div>
         {
-            currentProfile?.tags === [] ? (
+            currentProfile?.tag.length !== 0 ? (
                 <>
                     <h4>Tags watched</h4>
                     {
-                        currentProfile?.tags.map((tag) =>(
+                        currentProfile?.tag.map((tag) =>(
                             <p key={tag}>{tag}</p>
                         ) )
                     }
