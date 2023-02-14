@@ -24,6 +24,7 @@ export const login = (authData, navigate) => async(dispatch) => {
         navigate('/')
     } 
     catch (error) {
+        alert("No User Found")
         console.log(error)
     }
 
